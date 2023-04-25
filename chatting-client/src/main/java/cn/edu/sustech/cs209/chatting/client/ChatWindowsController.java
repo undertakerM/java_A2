@@ -14,68 +14,68 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class ChatWindowsController implements Initializable {
-    public Stage stage;
-    @FXML
-    public Label chatWithTitle;
+  public Stage stage;
+  @FXML
+  public Label chatWithTitle;
 
-    Controller controller;
+  Controller controller;
 
-    private String chatWith;
+  private String chatWith;
 
-    @FXML
-    public ListView<String> chatWithContent;
+  @FXML
+  public ListView<String> chatWithContent;
 
-    @FXML
-    public TextArea inputWithArea;
+  @FXML
+  public TextArea inputWithArea;
 
-    @FXML
-    public void doSendMessage(ActionEvent actionEvent) {
-        if (inputWithArea.getText() != null && !inputWithArea.getText().isEmpty()) {
-            controller.doMessSender(chatWith, inputWithArea.getText());
-            inputWithArea.clear();
-        }
+  @FXML
+  public void doSendMessage(ActionEvent actionEvent) {
+    if (inputWithArea.getText() != null && !inputWithArea.getText().isEmpty()) {
+      controller.doMessSender(chatWith, inputWithArea.getText());
+      inputWithArea.clear();
     }
+  }
 
-    public Stage getStage() {
-        return stage;
-    }
+  public Stage getStage() {
+    return stage;
+  }
 
-    public void setStage(Stage stage) {
-        this.stage = stage;
+  public void setStage(Stage stage) {
+    this.stage = stage;
 
-    }
+  }
 
-    public void updateChatWithContent(ListView<String> from) {
+  public void updateChatWithContent(ListView<String> from) {
 
-        Platform.runLater(new Runnable() {
-            @Override
-            public void run() {
+    Platform.runLater(new Runnable() {
+      @Override
+      public void run() {
 //                chatWithContent = from;
-                chatWithContent.setItems(from.getItems());
-            }
-        });
+        chatWithContent.setItems(from.getItems());
+      }
+    });
 
 //        System.out.println(chatWithContent.getItems());
-    }
+  }
 
-    public Controller getController() {
-        return controller;
-    }
+  public Controller getController() {
+    return controller;
+  }
 
-    public void setController(Controller controller) {
-        this.controller = controller;
-    }
+  public void setController(Controller controller) {
+    this.controller = controller;
+  }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+  @Override
+  public void initialize(URL url, ResourceBundle resourceBundle) {
 //        chatWithContent.setCellFactory(new Controller.MessageCellFactory(controller.username));
-    }
+  }
 
-    public String getChatWith() {
-        return chatWith;
-    }
+  public String getChatWith() {
+    return chatWith;
+  }
 
-    public void setChatWith(String chatWith) {
-        this.chatWith = chatWith;
-    }
+  public void setChatWith(String chatWith) {
+    this.chatWith = chatWith;
+  }
 }
